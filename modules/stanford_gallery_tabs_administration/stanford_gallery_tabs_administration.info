@@ -1,0 +1,13 @@
+name = Stanford Gallery Tabs Administration
+description = An administration feature for Stanford gallery tabs
+core = 7.x
+package = Stanford
+version = 7.x-1.0
+project = stanford_gallery_tabs_administration
+dependencies[] = draggableviews
+dependencies[] = stanford_gallery_tabs
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = manage_gallery_tabs
+features_exclude[dependencies][views] = views
+project path = sites/default/modules/stanford/stanford_gallery_tabs/modules
