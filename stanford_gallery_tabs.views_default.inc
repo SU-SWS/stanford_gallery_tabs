@@ -23,13 +23,15 @@ function stanford_gallery_tabs_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Gallery Tabs - Tabs List';
+  $handler->display->display_options['css_class'] = 'stanford-gallery-tabs-list';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Department */
@@ -100,14 +102,18 @@ function stanford_gallery_tabs_views_default_views() {
     'stanford_gallery_tab' => 'stanford_gallery_tab',
   );
 
-  /* Display: Block */
+  /* Display: Block - List */
   $handler = $view->new_display('block', 'Block - List', 'gallery_tabs_list');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'stanford-gallery-tabs-list span5';
   $handler->display->display_options['block_description'] = 'Tab List';
 
-  /* Display: Block */
+  /* Display: Block - Image */
   $handler = $view->new_display('block', 'Block - Image', 'gallery_tabs_image');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Gallery Tabs - Image';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'stanford-gallery-tabs-image span7';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_su_gt_image']['id'] = 'field_su_gt_image';
@@ -118,7 +124,7 @@ function stanford_gallery_tabs_views_default_views() {
   $handler->display->display_options['fields']['field_su_gt_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_su_gt_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_su_gt_image']['settings'] = array(
-    'image_style' => 'caw-large-landscape',
+    'image_style' => 'su-gallery-tabs-large',
     'image_link' => '',
   );
   $handler->display->display_options['block_description'] = 'Images';
@@ -145,8 +151,9 @@ function stanford_gallery_tabs_views_default_views() {
     [field_su_gt_department]
   </div>
 </div>'),
-    t('Block'),
+    t('Block - List'),
     t('Tab List'),
+    t('Block - Image'),
     t('Gallery Tabs - Image'),
     t('Images'),
   );
