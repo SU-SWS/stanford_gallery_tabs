@@ -25,6 +25,7 @@ features[field_instance][] = node-stanford_gallery_tab-field_su_gt_image
 features[field_instance][] = node-stanford_gallery_tab-field_su_gt_job_title
 features[field_instance][] = node-stanford_gallery_tab-field_su_gt_name
 features[field_instance][] = node-stanford_gallery_tab-field_su_gt_quotation
+features[image][] = su-gallery-tabs-large
 features[node][] = stanford_gallery_tab
 features[variable][] = field_bundle_settings_node__stanford_gallery_tab
 features[views_view][] = gallery_tabs

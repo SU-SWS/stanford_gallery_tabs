@@ -24,6 +24,30 @@ function stanford_gallery_tabs_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function stanford_gallery_tabs_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: su-gallery-tabs-large.
+  $styles['su-gallery-tabs-large'] = array(
+    'label' => 'su-gallery-tabs-large',
+    'effects' => array(
+      18 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 644,
+          'height' => 728,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function stanford_gallery_tabs_node_info() {
