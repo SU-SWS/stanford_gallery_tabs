@@ -5,3 +5,97 @@
  */
 
 include_once 'stanford_gallery_tabs.features.inc';
+
+
+/**
+ * Implements hook_block_info().
+ */
+function stanford_gallery_tabs_block_info() {
+
+  $blocks['stanford_gallery_tabs'] = array(
+    'info' => t('Stanford Gallery Tabs'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function stanford_gallery_tabs_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'stanford_gallery_tabs':
+      $block['subject'] = t("Stanford Gallery Tabs");
+      $block['title'] = "<none>";
+      stanford_gallery_tabs_block_content($block);
+      break;
+
+  }
+  return $block;
+}
+
+/**
+ * Returns the contents for the gallery tabs block
+ * @return [type] [description]
+ */
+function stanford_gallery_tabs_block_content(&$block) {
+
+  // Avoid php issues...
+  $block['content'] = array();
+
+  // The main image view.
+  $view = views_get_view('gallery_tabs');
+  $view->set_display('gallery_tabs_image');
+  $block['content']["#markup"] = $view->preview();
+
+  $content = "<div class=\"powered-by-people span5\"><h2><span class=\"black-text\">" . t("Powered by") . "</span> <span class=\"red-text\">" . t("People"). "</span></h2></div>";
+  $block['content']["#markup"] .= $content;
+
+  // The sidebar tabs view.
+  $view = views_get_view('gallery_tabs');
+  $view->set_display('gallery_tabs_list');
+  $block['content']["#markup"] .= $view->preview();
+
+  // Resources includes.
+  libraries_load('slick');
+  $block['content']['#attached']['css'][] = drupal_get_path("module", "stanford_gallery_tabs") . "/css/stanford_gallery_tabs.css";
+  $block['content']['#attached']['js'][] = drupal_get_path("module", "stanford_gallery_tabs") . "/js/stanford_gallery_tabs.js";
+
+}
+
+/**
+ * Implements hook_libraries_info().
+ */
+function stanford_gallery_tabs_libraries_info() {
+  $libraries = array();
+
+  // Don't need to add slick again if it is already available.
+  if (module_exists("slick") || module_exists("stanford_sweeteners")) {
+    return;
+  }
+
+  $libraries['slick'] = array(
+    'name' => 'Slick Carousel',
+    'vendor url' => 'http://kenwheeler.github.io/slick/',
+    'download url' => 'https://github.com/kenwheeler/slick/archive/1.4.0.zip',
+    'version arguments' => array(
+      'file' => 'package.json',
+      'pattern' => '/(\d+\.?\d+\.?\d+\.?)/',
+      'lines' => 3,
+    ),
+    'files' => array(
+      'js' => array(
+        'slick/slick.min.js',
+      ),
+      'css' => array(
+        'slick/slick.css',
+        'slick/slick-theme.css',
+      )
+    ),
+  );
+
+  return $libraries;
+}

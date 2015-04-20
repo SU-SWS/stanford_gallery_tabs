@@ -101,11 +101,11 @@ function stanford_gallery_tabs_views_default_views() {
   );
 
   /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
+  $handler = $view->new_display('block', 'Block - List', 'gallery_tabs_list');
   $handler->display->display_options['block_description'] = 'Tab List';
 
   /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler = $view->new_display('block', 'Block - Image', 'gallery_tabs_image');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Gallery Tabs - Image';
   $handler->display->display_options['defaults']['fields'] = FALSE;
