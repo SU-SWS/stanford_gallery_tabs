@@ -74,7 +74,7 @@ function stanford_gallery_tabs_libraries_info() {
 
   // Don't need to add slick again if it is already available.
   if (module_exists("slick") || module_exists("stanford_sweeteners")) {
-    return;
+    return array();
   }
 
   $libraries['slick'] = array(
