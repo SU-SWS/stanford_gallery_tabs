@@ -80,7 +80,7 @@ function stanford_gallery_tabs_libraries_info() {
   $libraries['slick'] = array(
     'name' => 'Slick Carousel',
     'vendor url' => 'http://kenwheeler.github.io/slick/',
-    'download url' => 'https://github.com/kenwheeler/slick/archive/1.4.0.zip',
+    'download url' => 'https://github.com/kenwheeler/slick/archive/1.5.0.zip',
     'version arguments' => array(
       'file' => 'package.json',
       'pattern' => '/(\d+\.?\d+\.?\d+\.?)/',

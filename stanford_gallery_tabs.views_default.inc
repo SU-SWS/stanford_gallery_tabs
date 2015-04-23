@@ -26,7 +26,11 @@ function stanford_gallery_tabs_views_default_views() {
   $handler->display->display_options['css_class'] = 'stanford-gallery-tabs-list';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
@@ -62,6 +66,16 @@ function stanford_gallery_tabs_views_default_views() {
   $handler->display->display_options['fields']['field_su_gt_quotation']['label'] = '';
   $handler->display->display_options['fields']['field_su_gt_quotation']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_su_gt_quotation']['element_label_colon'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['alter']['text'] = '<span class="">[edit_node]</span>';
+  $handler->display->display_options['fields']['edit_node']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['alter']['link_class'] = 'edit-link';
+  $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -80,6 +94,7 @@ function stanford_gallery_tabs_views_default_views() {
   <div class="su-gallery-tab-department">
     [field_su_gt_department]
   </div>
+  [edit_node]
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Draggableviews: Weight */
@@ -142,6 +157,9 @@ function stanford_gallery_tabs_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Edit link'),
+    t('<span class="">[edit_node]</span>'),
+    t('Edit'),
     t('<div class="su-gallery-tab">
   <div class="su-gallery-tab-quote">
     [field_su_gt_quotation]
@@ -155,6 +173,7 @@ function stanford_gallery_tabs_views_default_views() {
   <div class="su-gallery-tab-department">
     [field_su_gt_department]
   </div>
+  [edit_node]
 </div>'),
     t('Block - List'),
     t('Tab List'),
