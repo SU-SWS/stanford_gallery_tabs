@@ -113,8 +113,9 @@
   margin-top: -2px;
   z-index: 11;
   outline: 0;
+  cursor: default;
 }
-/* line 119, stanford_gallery_tabs.scss */
+/* line 120, stanford_gallery_tabs.scss */
 .view-display-id-gallery_tabs_list .active-tab .su-gallery-tab-quote {
   display: block;
 }
