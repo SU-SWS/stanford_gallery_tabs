@@ -32,16 +32,29 @@ function stanford_gallery_tabs_administration_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
+    'draggableviews' => 'draggableviews',
+    'views_bulk_operations' => 'views_bulk_operations',
     'field_su_gt_image' => 'field_su_gt_image',
     'title' => 'title',
     'field_su_gt_name' => 'field_su_gt_name',
     'changed' => 'changed',
     'status' => 'status',
     'edit_node' => 'edit_node',
+    'view_node' => 'edit_node',
     'delete_node' => 'edit_node',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
+    'draggableviews' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'views_bulk_operations' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'field_su_gt_image' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
@@ -82,12 +95,28 @@ function stanford_gallery_tabs_administration_views_default_views() {
       'separator' => ' | ',
       'empty_column' => 0,
     ),
+    'view_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'delete_node' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
   );
+  /* Relationship: Content: Author */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'node';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  /* Field: Global: View result counter */
+  $handler->display->display_options['fields']['counter']['id'] = 'counter';
+  $handler->display->display_options['fields']['counter']['table'] = 'views';
+  $handler->display->display_options['fields']['counter']['field'] = 'counter';
+  $handler->display->display_options['fields']['counter']['label'] = 'Row';
+  $handler->display->display_options['fields']['counter']['counter_start'] = '1';
+  $handler->display->display_options['fields']['counter']['reverse'] = 0;
   /* Field: Draggableviews: Content */
   $handler->display->display_options['fields']['draggableviews']['id'] = 'draggableviews';
   $handler->display->display_options['fields']['draggableviews']['table'] = 'node';
@@ -101,7 +130,7 @@ function stanford_gallery_tabs_administration_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'node';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['label'] = 'Select';
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '1';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
@@ -121,7 +150,7 @@ function stanford_gallery_tabs_administration_views_default_views() {
       'label' => '',
     ),
     'action::views_bulk_operations_delete_item' => array(
-      'selected' => 0,
+      'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
@@ -156,7 +185,7 @@ function stanford_gallery_tabs_administration_views_default_views() {
       'label' => '',
     ),
     'action::views_bulk_operations_modify_action' => array(
-      'selected' => 0,
+      'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
@@ -264,10 +293,23 @@ function stanford_gallery_tabs_administration_views_default_views() {
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
   $handler->display->display_options['fields']['status']['not'] = 0;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['name']['label'] = 'Author';
   /* Field: Content: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'view';
   /* Field: Content: Delete link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
@@ -302,6 +344,70 @@ function stanford_gallery_tabs_administration_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'stanford_gallery_tab' => 'stanford_gallery_tab',
   );
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
+  $handler->display->display_options['filters']['status_1']['table'] = 'node';
+  $handler->display->display_options['filters']['status_1']['field'] = 'status';
+  $handler->display->display_options['filters']['status_1']['value'] = 'All';
+  $handler->display->display_options['filters']['status_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['status_1']['expose']['operator_id'] = '';
+  $handler->display->display_options['filters']['status_1']['expose']['label'] = 'Published';
+  $handler->display->display_options['filters']['status_1']['expose']['operator'] = 'status_1_op';
+  $handler->display->display_options['filters']['status_1']['expose']['identifier'] = 'status_1';
+  $handler->display->display_options['filters']['status_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    9 => 0,
+    7 => 0,
+    5 => 0,
+    17 => 0,
+    13 => 0,
+    15 => 0,
+  );
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'word';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    9 => 0,
+    7 => 0,
+    5 => 0,
+    17 => 0,
+    13 => 0,
+    15 => 0,
+  );
+  /* Filter criterion: User: Name (raw) */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'users';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'uid';
+  $handler->display->display_options['filters']['name']['operator'] = 'word';
+  $handler->display->display_options['filters']['name']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['name']['expose']['operator_id'] = 'name_op';
+  $handler->display->display_options['filters']['name']['expose']['label'] = 'Author name';
+  $handler->display->display_options['filters']['name']['expose']['operator'] = 'name_op';
+  $handler->display->display_options['filters']['name']['expose']['identifier'] = 'name';
+  $handler->display->display_options['filters']['name']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    9 => 0,
+    7 => 0,
+    5 => 0,
+    17 => 0,
+    13 => 0,
+    15 => 0,
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'administer_gallery_tabs');
@@ -329,6 +435,8 @@ function stanford_gallery_tabs_administration_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('author'),
+    t('Row'),
     t('Order'),
     t('Select'),
     t('- Choose an operation -'),
@@ -337,8 +445,11 @@ function stanford_gallery_tabs_administration_views_default_views() {
     t('Name'),
     t('Updated date'),
     t('Published'),
+    t('Author'),
     t('Edit link'),
+    t('view'),
     t('Delete link'),
+    t('Author name'),
     t('Page'),
   );
   $export['manage_gallery_tabs'] = $view;
