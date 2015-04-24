@@ -36,7 +36,9 @@ var stanford_gallery_tabs = {
       // -----------------------------------------------------------------------
 
       // Allow tabs to be focusable.
-      $(".stanford-gallery-tabs-list .view-content").attr("role", "group");
+      $(".stanford-gallery-tabs-list .view-content")
+        .attr("role", "group")
+        .attr("aria-labelledby", "gallery-tabs-heading");
       $(".stanford-gallery-tabs-list .view-content .views-row")
         .attr("aria-expanded", false)
         .attr("role", "tab")
