@@ -17,8 +17,9 @@ var stanford_gallery_tabs = {
     var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
     if (key == 32)
        e.preventDefault();
- });
+  });
 
+  // Behaviors!
   Drupal.behaviors.stanford_gallery_tabs = {
     attach: function (context, settings) {
 
@@ -35,7 +36,11 @@ var stanford_gallery_tabs = {
       // -----------------------------------------------------------------------
 
       // Allow tabs to be focusable.
-      $(".stanford-gallery-tabs-list .view-content .views-row").attr("tabindex", 1);
+      $(".stanford-gallery-tabs-list .view-content").attr("role", "group");
+      $(".stanford-gallery-tabs-list .view-content .views-row")
+        .attr("aria-expanded", false)
+        .attr("role", "tab")
+        .attr("tabindex", 0);
 
       // Trigger the click when user hits space bar.
       $(".stanford-gallery-tabs-list .view-content .views-row").keyup(function(e){
@@ -58,44 +63,46 @@ var stanford_gallery_tabs = {
     }
   };
 
-})(jQuery);
-
 /**
  * [click_tab description]
  * @param  {[type]} args [description]
  * @return {[type]}      [description]
  */
-stanford_gallery_tabs.click_tab = function(element, args) {
-  var tabs = this.get_tabs(element);
-  tabs.removeClass("active-tab");
-  jQuery(element).addClass("active-tab");
-  var index = this.get_index(element);
-  jQuery(".stanford-gallery-tabs-image .view-content").slick("slickGoTo", index);
-};
+  stanford_gallery_tabs.click_tab = function(element, args) {
+    var tabs = this.get_tabs(element);
+    tabs.removeClass("active-tab");
+    tabs.attr("aria-expanded", false);
 
-/**
- * [get_tabs description]
- * @return {[type]} [description]
- */
-stanford_gallery_tabs.get_tabs = function(element) {
+    $(element).addClass("active-tab");
+    var index = this.get_index(element);
+    $(".stanford-gallery-tabs-image .view-content").slick("slickGoTo", index);
+    $(element).attr("aria-expanded", true);
+  };
 
-  if (this.tabs.length) {
+  /**
+   * [get_tabs description]
+   * @return {[type]} [description]
+   */
+  stanford_gallery_tabs.get_tabs = function(element) {
+
+    if (this.tabs.length) {
+      return this.tabs;
+    }
+
+    this.tabs = $(element).parents(".view-content").find(".views-row");
+
     return this.tabs;
-  }
+  };
 
-  this.tabs = jQuery(element).parents(".view-content").find(".views-row");
+  /**
+   * [get_index description]
+   * @param  {[type]} element [description]
+   * @return {[type]}         [description]
+   */
+  stanford_gallery_tabs.get_index = function(element) {
+    var tabs = this.get_tabs(element);
+    var index = tabs.index(element);
+    return index;
+  };
 
-  return this.tabs;
-};
-
-/**
- * [get_index description]
- * @param  {[type]} element [description]
- * @return {[type]}         [description]
- */
-stanford_gallery_tabs.get_index = function(element) {
-  var tabs = this.get_tabs(element);
-  var index = tabs.index(element);
-  return index;
-};
-
+})(jQuery);
