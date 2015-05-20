@@ -40,6 +40,8 @@
     img {
       width: 100%;
       height: auto;
+      @include border-radius(4px);
+      @include box-shadow(1px 1px 8px rgba(0, 0, 0, 0.3));
     }
   }
 }
