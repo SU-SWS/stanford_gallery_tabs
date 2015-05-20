@@ -1,4 +1,4 @@
-@import "compass/css3/transition";
+@import "compass/css3";
 
 /**
  * For gallery tabs.
@@ -71,9 +71,9 @@
 
   .su-gallery-tab-quote {
     display: none;
-    font-size: 2.8em;
-    line-height: 1.2em;
-    margin-bottom: 40px;
+    font-size: 1.8em;
+    line-height: 1.3em;
+    margin-bottom: 30px;
     position: relative;
   }
 
@@ -92,18 +92,22 @@
   }
 
   .su-gallery-tab-name {
-    font-weight: bold;
+    font-weight: 600;
+    margin-bottom: 0.25em;
+    letter-spacing: 0.03em;
+    line-height: 1.4em;
   }
 
-  .su-gallery-tab-job-title {
-    // Nothing here yet.
-  }
-
+  .su-gallery-tab-job-title,
   .su-gallery-tab-department {
-    // Nothing to see.
+    font-size: 0.9em;
+    line-height: 1.4em;
+    letter-spacing: 0.02em;
   }
 
   .active-tab {
+    @include border-radius(4px);
+    @include box-shadow(1px 1px 8px rgba(0, 0, 0, 0.3));
     @include transition-property(all);
     @include transition-duration(.3s);
     @include transition-timing-function(ease-out);
