@@ -20,6 +20,8 @@
 
 .slick-list {
   overflow: visible;
+  @include border-radius(3px);
+  @include box-shadow(1px 1px 8px rgba(0, 0, 0, 0.3));
 }
 
 /**
@@ -45,7 +47,6 @@
       width: 100%;
       height: auto;
       @include border-radius(3px);
-      @include box-shadow(1px 1px 8px rgba(0, 0, 0, 0.3));
     }
   }
 }
