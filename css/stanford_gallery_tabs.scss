@@ -18,6 +18,10 @@
 
 }
 
+.slick-list {
+  overflow: visible;
+}
+
 /**
  * Powered by people
  */
@@ -40,7 +44,7 @@
     img {
       width: 100%;
       height: auto;
-      @include border-radius(4px);
+      @include border-radius(3px);
       @include box-shadow(1px 1px 8px rgba(0, 0, 0, 0.3));
     }
   }
@@ -65,7 +69,7 @@
     margin: 0 0 2px 0;
     padding: 20px 30px 20px 30px;
     position: relative;
-    background: #5a5d62;
+    background: #5a5c61;
     color: #FFF;
     left: 0px;
     cursor: pointer;
@@ -83,7 +87,7 @@
   .su-gallery-tab-quote:after {
     font-size: 1.5em;
     opacity: .5;
-    font-weight: bold;
+    font-weight: 600;
     position: absolute;
     content: "”";
   }
@@ -113,7 +117,7 @@
     @include transition-property(all);
     @include transition-duration(.3s);
     @include transition-timing-function(ease-out);
-    background: #620d10;
+    background: #650000;
     padding: 40px 70px 40px 70px;
     left: -40px;
     margin-right: -80px;
