@@ -13,7 +13,7 @@
 }
 
 /* line 21, stanford_gallery_tabs.scss */
-.slick-list {
+.view-gallery-tabs .slick-list {
   overflow: visible;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
