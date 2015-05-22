@@ -46,7 +46,7 @@ function stanford_gallery_tabs_block_content(&$block) {
   // Avoid php issues...
   $block['content'] = array();
 
-  $content = "<div class=\"powered-by-people span5\"><h2 id=\"gallery-tabs-heading\"><span class=\"black-text\">" . t("Powered by") . "</span> <span class=\"red-text\">" . t("People"). "</span></h2></div>";
+  $content = "<div class=\"powered-by-people\"><h2 id=\"gallery-tabs-heading\"><span class=\"black-text\">" . t("Powered by") . "</span> <span class=\"red-text\">" . t("People"). "</span></h2></div>";
   $block['content']["#markup"] = $content;
 
   // The main image view.
