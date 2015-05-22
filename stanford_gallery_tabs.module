@@ -46,13 +46,13 @@ function stanford_gallery_tabs_block_content(&$block) {
   // Avoid php issues...
   $block['content'] = array();
 
+  $content = "<div class=\"powered-by-people span5\"><h2 id=\"gallery-tabs-heading\"><span class=\"black-text\">" . t("Powered by") . "</span> <span class=\"red-text\">" . t("People"). "</span></h2></div>";
+  $block['content']["#markup"] = $content;
+
   // The main image view.
   $view = views_get_view('gallery_tabs');
   $view->set_display('gallery_tabs_image');
-  $block['content']["#markup"] = $view->preview();
-
-  $content = "<div class=\"powered-by-people span5\"><h2 id=\"gallery-tabs-heading\"><span class=\"black-text\">" . t("Powered by") . "</span> <span class=\"red-text\">" . t("People"). "</span></h2></div>";
-  $block['content']["#markup"] .= $content;
+  $block['content']["#markup"] .= $view->preview();
 
   // The sidebar tabs view.
   $view = views_get_view('gallery_tabs');
@@ -99,3 +99,20 @@ function stanford_gallery_tabs_libraries_info() {
 
   return $libraries;
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter
+ * @param  [type] &$form       [description]
+ * @param  [type] &$form_state [description]
+ * @return [type]              [description]
+ */
+function stanford_gallery_tabs_form_node_form_alter(&$form, &$form_state) {
+
+  if (!isset($form["#bundle"]) || $form['#bundle'] !== "stanford_gallery_tab") {
+    return;
+  }
+
+  $path = drupal_get_path("module", "stanford_gallery_tabs") . "/js/stanford_gallery_tabs.admin.js";
+  $form["#attached"]['js'][] = $path;
+}
+

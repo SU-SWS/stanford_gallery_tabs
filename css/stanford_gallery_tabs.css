@@ -1,49 +1,37 @@
 @charset "UTF-8";
 /**
- * For gallery tabs.
+ * Images
  */
-/* line 9, stanford_gallery_tabs.scss */
-.slick-slider .views-row {
+/* line 10, stanford_gallery_tabs.scss */
+.view-display-id-gallery_tabs_image .views-row {
   clear: none;
   margin: 0;
 }
-/* line 15, stanford_gallery_tabs.scss */
-.slick-slider .slick-prev,
-.slick-slider .slick-next {
-  background: #CBC;
-}
-
-/**
- * Powered by people
- */
-/* line 25, stanford_gallery_tabs.scss */
-.powered-by-people {
-  padding-top: 20px;
-}
-/* line 28, stanford_gallery_tabs.scss */
-.powered-by-people h2 {
-  font-size: 2.6em;
-  font-family: serif;
-}
-
-/**
- * Images
- */
-/* line 40, stanford_gallery_tabs.scss */
+/* line 16, stanford_gallery_tabs.scss */
 .view-display-id-gallery_tabs_image .su-gallery-image img {
   width: 100%;
   height: auto;
 }
 
 /**
+ * Powered by peoples
+ */
+/* line 27, stanford_gallery_tabs.scss */
+.powered-by-people {
+  position: absolute;
+  right: 0px;
+  background: #FFF;
+}
+
+/**
  * Tabs
  */
-/* line 52, stanford_gallery_tabs.scss */
+/* line 38, stanford_gallery_tabs.scss */
 #block-stanford-gallery-tabs-stanford-gallery-tabs .view-display-id-gallery_tabs_list {
   margin-left: 0px;
 }
 
-/* line 59, stanford_gallery_tabs.scss */
+/* line 45, stanford_gallery_tabs.scss */
 .view-display-id-gallery_tabs_list .views-row {
   -webkit-transition-property: all;
   -moz-transition-property: all;
@@ -65,15 +53,15 @@
   left: 0px;
   cursor: pointer;
 }
-/* line 72, stanford_gallery_tabs.scss */
+/* line 58, stanford_gallery_tabs.scss */
 .view-display-id-gallery_tabs_list .su-gallery-tab-quote {
   display: none;
-  font-size: 2.8em;
-  line-height: 1.2em;
+  font-size: 1.8em;
+  line-height: 1.3em;
   margin-bottom: 40px;
   position: relative;
 }
-/* line 81, stanford_gallery_tabs.scss */
+/* line 67, stanford_gallery_tabs.scss */
 .view-display-id-gallery_tabs_list .su-gallery-tab-quote:before,
 .view-display-id-gallery_tabs_list .su-gallery-tab-quote:after {
   font-size: 1.5em;
@@ -82,16 +70,16 @@
   position: absolute;
   content: "”";
 }
-/* line 89, stanford_gallery_tabs.scss */
+/* line 75, stanford_gallery_tabs.scss */
 .view-display-id-gallery_tabs_list .su-gallery-tab-quote:before {
   content: "“";
   left: -0.6em;
 }
-/* line 94, stanford_gallery_tabs.scss */
+/* line 80, stanford_gallery_tabs.scss */
 .view-display-id-gallery_tabs_list .su-gallery-tab-name {
   font-weight: bold;
 }
-/* line 106, stanford_gallery_tabs.scss */
+/* line 92, stanford_gallery_tabs.scss */
 .view-display-id-gallery_tabs_list .active-tab {
   -webkit-transition-property: all;
   -moz-transition-property: all;
@@ -115,7 +103,77 @@
   outline: 0;
   cursor: auto;
 }
-/* line 120, stanford_gallery_tabs.scss */
+/* line 106, stanford_gallery_tabs.scss */
 .view-display-id-gallery_tabs_list .active-tab .su-gallery-tab-quote {
   display: block;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  /* line 117, stanford_gallery_tabs.scss */
+  #block-stanford-gallery-tabs-stanford-gallery-tabs {
+    margin-top: 30px;
+  }
+  /* line 120, stanford_gallery_tabs.scss */
+  #block-stanford-gallery-tabs-stanford-gallery-tabs .content {
+    vertical-align: bottom;
+    position: relative;
+    overflow: hidden;
+    *zoom: 1;
+  }
+
+  /* line 131, stanford_gallery_tabs.scss */
+  .row-fluid .view-display-id-gallery_tabs_image.span7 {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  /* line 138, stanford_gallery_tabs.scss */
+  .row-fluid .view-display-id-gallery_tabs_list.span5 {
+    position: absolute;
+    bottom: 0px;
+    width: 101%;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: bottom;
+  }
+  /* line 146, stanford_gallery_tabs.scss */
+  .row-fluid .view-display-id-gallery_tabs_list.span5 .views-row {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+    vertical-align: bottom;
+    width: 214px;
+    margin: 0;
+    padding: 11px;
+  }
+  /* line 154, stanford_gallery_tabs.scss */
+  .row-fluid .view-display-id-gallery_tabs_list.span5 .su-gallery-tab-quote {
+    font-size: 1.5em;
+    left: 0px;
+    margin-bottom: 10px;
+  }
+  /* line 161, stanford_gallery_tabs.scss */
+  .row-fluid .view-display-id-gallery_tabs_list.span5 .su-gallery-tab-quote:before,
+  .row-fluid .view-display-id-gallery_tabs_list.span5 .su-gallery-tab-quote:after {
+    font-size: 0.9em;
+  }
+  /* line 165, stanford_gallery_tabs.scss */
+  .row-fluid .view-display-id-gallery_tabs_list.span5 .active-tab {
+    margin: 0px;
+    padding: 10px 19px;
+    left: 0px;
+  }
+  /* line 171, stanford_gallery_tabs.scss */
+  .row-fluid .view-display-id-gallery_tabs_list.span5 .views-row-even {
+    margin: 0px -3px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* line 184, stanford_gallery_tabs.scss */
+  #block-stanford-gallery-tabs-stanford-gallery-tabs {
+    margin-top: 30px;
+  }
 }

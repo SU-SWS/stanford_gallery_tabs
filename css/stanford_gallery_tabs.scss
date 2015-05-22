@@ -1,47 +1,33 @@
-@import "compass/css3/transition";
-
-/**
- * For gallery tabs.
- */
-
-.slick-slider {
-
-  .views-row {
-    clear: none;
-    margin: 0;
-  }
-
-  .slick-prev,
-  .slick-next {
-    background: #CBC;
-  }
-
-}
-
-/**
- * Powered by people
- */
-
-.powered-by-people {
-  padding-top: 20px;
-
-  h2 {
-    font-size: 2.6em;
-    font-family: serif;
-  }
-}
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
 
 /**
  * Images
  */
 
 .view-display-id-gallery_tabs_image {
+
+  .views-row {
+    clear: none;
+    margin: 0;
+  }
+
   .su-gallery-image {
     img {
       width: 100%;
       height: auto;
     }
   }
+}
+
+/**
+ * Powered by peoples
+ */
+
+.powered-by-people {
+  position: absolute;
+  right: 0px;
+  background: #FFF;
 }
 
 /**
@@ -71,8 +57,8 @@
 
   .su-gallery-tab-quote {
     display: none;
-    font-size: 2.8em;
-    line-height: 1.2em;
+    font-size: 1.8em;
+    line-height: 1.3em;
     margin-bottom: 40px;
     position: relative;
   }
@@ -123,4 +109,79 @@
 
   }
 
+}
+
+// Bottom aligned.
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+
+  #block-stanford-gallery-tabs-stanford-gallery-tabs {
+    margin-top: 30px;
+
+    .content {
+      vertical-align: bottom;
+      position: relative;
+      @include clearfix;
+    }
+
+  } // block-stanford-gallery-tabs-stanford-gallery-tabs
+
+  .row-fluid {
+
+    // Images
+    .view-display-id-gallery_tabs_image.span7 {
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+    } // view-display-id-gallery_tabs_image.span7
+
+    // Tabs.
+    .view-display-id-gallery_tabs_list.span5 {
+      position: absolute;
+      bottom: 0px;
+      width: 101%;
+      margin: 0px;
+      padding: 0px;
+      vertical-align: bottom;
+
+      .views-row {
+        @include inline-block;
+        vertical-align: bottom;
+        width: 214px;
+        margin: 0;
+        padding: 11px;
+      } // views-row
+
+      .su-gallery-tab-quote {
+        font-size: 1.5em;
+        left: 0px;
+        margin-bottom: 10px;
+      } // .su-gallery-tab-quote
+
+      .su-gallery-tab-quote:before,
+      .su-gallery-tab-quote:after {
+        font-size: 0.9em;
+      }
+
+      .active-tab {
+        margin: 0px;
+        padding: 10px 19px;
+        left: 0px;
+      } // active-tab
+
+      .views-row-even {
+        margin: 0px -3px;
+      } // views-row-even
+
+    } //view-display-id-gallery_tabs_list.span5
+
+  } // row-fluid
+
+} // @media screen min 768 max 979
+
+
+// Bottom aligned.
+@media only screen and (max-width: 767px) {
+  #block-stanford-gallery-tabs-stanford-gallery-tabs {
+    margin-top: 30px;
+  }
 }
