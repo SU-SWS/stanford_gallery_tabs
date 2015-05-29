@@ -206,9 +206,11 @@
       .views-row {
         @include inline-block;
         vertical-align: bottom;
-        width: 214px;
+        width: 190px;
+        min-height: 190px;
         margin: 0;
-        padding: 11px;
+        padding: 20px;
+        @include box-sizing(border-box);
       } // views-row
 
       .su-gallery-tab-quote {
@@ -226,6 +228,7 @@
         margin: 0px;
         padding: 10px 19px;
         left: 0px;
+        width: 344px;
       } // active-tab
 
       .views-row-even {
@@ -238,3 +241,8 @@
 
 } // @media screen min 768 max 979
 
+@media (max-width: 767px) {
+  .slick-slider {
+    margin-bottom: 0px;
+  }
+}
