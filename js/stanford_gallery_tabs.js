@@ -12,16 +12,21 @@ var stanford_gallery_tabs = {
 
 (function ($) {
 
-  // Prevent space bar from jumping down page.
-  $(".stanford-gallery-tabs-list").keydown(function (e) {
+  // Prevent space bar from jumping down page on views rows.
+  $(document).keydown(function (e) {
     var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
-    if (key == 32)
-       e.preventDefault();
+    if (key == 32) {
+      if ($(e.target).hasClass("views-row")) {
+        e.preventDefault();
+      }
+    }
   });
 
   // Behaviors!
   Drupal.behaviors.stanford_gallery_tabs = {
     attach: function (context, settings) {
+
+
 
       // IMAGE
       // -----------------------------------------------------------------------
