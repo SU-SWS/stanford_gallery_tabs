@@ -1,8 +1,7 @@
 #[Stanford Gallery Tabs](https://github.com/SU-SWS/stanford_gallery_tabs)
-##### Version: 7.x-1.x
+##### Version: 7.x-1.0
 
 Maintainers: [jbickar](https://github.com/jbickar), [sherakama](https://github.com/sherakama)
-[Changelog.txt](CHANGELOG.txt)
 
 This module provides a content type, a few views and a block that allows a content author to create mulitple gallery tab nodes and have them displayed in a sexy javascripty block.
 
