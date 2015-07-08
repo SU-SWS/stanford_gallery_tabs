@@ -111,7 +111,7 @@
     margin: 0 0 2px 0;
     padding: 20px 30px 20px 30px;
     position: relative;
-    background: #5a5c61;
+    background: #3f8289;
     color: #FFF;
     left: 0px;
     cursor: pointer;
@@ -163,7 +163,8 @@
     @include transition-property(all);
     @include transition-duration(.3s);
     @include transition-timing-function(ease-out);
-    background: #650000;
+    background: #ffffff;
+    color: #333333;
     padding: 40px 70px 40px 70px;
     left: -40px;
     margin-right: -80px;
