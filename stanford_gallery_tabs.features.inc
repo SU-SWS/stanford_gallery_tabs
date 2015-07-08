@@ -36,8 +36,8 @@ function stanford_gallery_tabs_image_default_styles() {
       18 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 644,
-          'height' => 728,
+          'width' => 670,
+          'height' => 670,
         ),
         'weight' => 1,
       ),
