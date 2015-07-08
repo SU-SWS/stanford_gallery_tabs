@@ -151,6 +151,7 @@
     font-size: 0.9em;
     line-height: 1.4em;
     letter-spacing: 0.02em;
+    display: none;
   }
 
   .active-tab {
@@ -169,6 +170,7 @@
     outline: 0;
     cursor: auto;
 
+    .su-gallery-tab-department,
     .su-gallery-tab-quote {
       display: block;
     }
