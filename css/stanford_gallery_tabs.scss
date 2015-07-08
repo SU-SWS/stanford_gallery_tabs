@@ -176,6 +176,12 @@
     outline: 0;
     cursor: auto;
 
+    .su-gallery-tab-name,
+    .su-gallery-tab-job-title,
+    .su-gallery-tab-department {
+      margin-left: 55px;
+    }
+
     .su-gallery-tab-department,
     .su-gallery-tab-quote {
       display: block;
