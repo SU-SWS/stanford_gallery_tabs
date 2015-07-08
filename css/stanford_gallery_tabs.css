@@ -186,10 +186,10 @@
   -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
-  -webkit-transition-property: all;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
@@ -213,7 +213,7 @@
 .view-display-id-gallery_tabs_list .active-tab .su-gallery-tab-name,
 .view-display-id-gallery_tabs_list .active-tab .su-gallery-tab-job-title,
 .view-display-id-gallery_tabs_list .active-tab .su-gallery-tab-department {
-  margin-left: 55px;
+  margin-left: 59px;
 }
 /* line 186, stanford_gallery_tabs.scss */
 .view-display-id-gallery_tabs_list .active-tab .su-gallery-tab-department,

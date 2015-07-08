@@ -162,7 +162,7 @@
   .active-tab {
     @include border-radius(4px);
     @include box-shadow(1px 1px 8px rgba(0, 0, 0, 0.3));
-    @include transition-property(all);
+    @include transition-property(none);
     @include transition-duration(.3s);
     @include transition-timing-function(ease-out);
     background: #ffffff;
@@ -179,7 +179,7 @@
     .su-gallery-tab-name,
     .su-gallery-tab-job-title,
     .su-gallery-tab-department {
-      margin-left: 55px;
+      margin-left: 59px;
     }
 
     .su-gallery-tab-department,
