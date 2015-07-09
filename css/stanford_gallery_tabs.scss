@@ -233,6 +233,7 @@
         margin: 0;
         padding: 20px;
         @include box-sizing(border-box);
+        transition-property: none;
       } // views-row
 
       .su-gallery-tab-quote {
