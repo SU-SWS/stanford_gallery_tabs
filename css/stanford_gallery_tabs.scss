@@ -270,4 +270,14 @@
   .slick-slider {
     margin-bottom: 0px;
   }
+  .view-display-id-gallery_tabs_list .active-tab {
+    margin-right: -20px;
+    left: -10px;
+
+    .su-gallery-tab-name,
+    .su-gallery-tab-job-title,
+    .su-gallery-tab-department {
+      margin-left: 0;
+    }
+  }
 }

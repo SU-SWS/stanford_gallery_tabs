@@ -304,4 +304,16 @@
   .slick-slider {
     margin-bottom: 0px;
   }
+
+  /* line 273, stanford_gallery_tabs.scss */
+  .view-display-id-gallery_tabs_list .active-tab {
+    margin-right: -20px;
+    left: -10px;
+  }
+  /* line 279, stanford_gallery_tabs.scss */
+  .view-display-id-gallery_tabs_list .active-tab .su-gallery-tab-name,
+  .view-display-id-gallery_tabs_list .active-tab .su-gallery-tab-job-title,
+  .view-display-id-gallery_tabs_list .active-tab .su-gallery-tab-department {
+    margin-left: 0;
+  }
 }
