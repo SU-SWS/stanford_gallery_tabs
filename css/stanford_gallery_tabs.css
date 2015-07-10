@@ -316,4 +316,9 @@
   .view-display-id-gallery_tabs_list .active-tab .su-gallery-tab-department {
     margin-left: 0;
   }
+
+  /* line 283, stanford_gallery_tabs.scss */
+  .view-display-id-gallery_tabs_list .views-row {
+    padding: 20px 60px;
+  }
 }
