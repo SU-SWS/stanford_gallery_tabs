@@ -80,8 +80,9 @@
     left: auto;
   }
 }
+
 /* line 74, stanford_gallery_tabs.scss */
-.powered-by-people h2 {
+.content .powered-by-people h2 {
   font-size: 2.6em;
   line-height: 1.4em;
   font-family: serif;
