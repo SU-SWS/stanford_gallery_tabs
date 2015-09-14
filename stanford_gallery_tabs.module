@@ -45,6 +45,7 @@ function stanford_gallery_tabs_block_content(&$block) {
 
   // Avoid php issues...
   $block['content'] = array();
+  $block['content']["#markup"] = "";
 
   // The main image view.
   $view = views_get_view('gallery_tabs');
