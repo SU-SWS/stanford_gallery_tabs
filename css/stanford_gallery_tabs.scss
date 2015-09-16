@@ -22,13 +22,13 @@
     }
 
     @media screen and (min-width: 980px) and (max-width: 1199px) {
-      margin: 120px 0 0 0;
+      margin: 80px 0 0 0;
     }
 
     // Bottom aligned.
     @media screen and (min-width: 768px) and (max-width: 979px) {
       width: 100%;
-      margin: 50px 0 0 0;
+      margin: 0;
       padding: 0px;
     }
   }
@@ -102,7 +102,7 @@
 
   .view-display-id-gallery_tabs_list {
     margin-left: 0px;
-    margin-top: 120px;
+    margin-top: 80px;
     @media screen and (min-width: 980px) and (max-width: 1199px) {
       margin-top: 150px;
     }
