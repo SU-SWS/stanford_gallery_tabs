@@ -117,7 +117,7 @@
 @media screen and (min-width: 980px) and (max-width: 1199px) {
   /* line 103, stanford_gallery_tabs.scss */
   #block-stanford-gallery-tabs-stanford-gallery-tabs .view-display-id-gallery_tabs_list {
-    margin-top: 150px;
+    margin-top: 100px;
   }
 }
 @media (max-width: 767px) {
